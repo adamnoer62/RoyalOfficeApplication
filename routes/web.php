@@ -16,6 +16,6 @@ Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])-
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
  Route::patch('banners/{banner}/set-active', [BannerController::class, 'setActive'])->name('banners.setActive');
  Route::resource('banners', BannerController::class);
