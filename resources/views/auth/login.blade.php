@@ -59,14 +59,7 @@
         </form>
 
         {{-- Link ke Halaman Registrasi --}}
-        @if (Route::has('register'))
-            <p class="text-sm text-center text-gray-600">
-                Belum punya akun?
-                <a href="{{ route('register') }}" class="font-medium text-yellow-600 hover:underline">
-                    Daftar di sini
-                </a>
-            </p>
-        @endif
+    
     </div>
 </div>
 @endsection
