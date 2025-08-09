@@ -12,6 +12,8 @@ Route ::get('/', [App\Http\Controllers\HomeController::class, 'halamandepan'])->
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'blog'])->name('blog');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('/layanan/{jenis}', [HomeController::class, 'layanan'])->name('layanan.show');
+Route::get('/faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 
 
 Auth::routes();

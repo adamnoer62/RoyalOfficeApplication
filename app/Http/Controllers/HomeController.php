@@ -38,9 +38,31 @@ class HomeController extends Controller
         return view('HalamanDepan.Blog');
     }
 
+    public function layanan($jenis)
+{
+    $viewMap = [
+        'virtual-office' => 'HalamanDepan.VirtualOffice',
+        'ruang-kantor'   => 'HalamanDepan.RuangKantor',
+        'ruang-meeting'  => 'HalamanDepan.RuangMeeting',
+        'pendirian-pt'   => 'HalamanDepan.PendirianPT',
+        'pendirian-cv'   => 'HalamanDepan.PendirianCV',
+    ];
+
+    if (!array_key_exists($jenis, $viewMap)) {
+        abort(404);
+    }
+
+    return view($viewMap[$jenis]);
+}
+
     public function contact()
     {
         return view('HalamanDepan.contact');
+    }
+
+    public function faq()
+    {
+        return view('HalamanDepan.faq');
     }
 
 
