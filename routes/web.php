@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\HomeController; 
+use App\Http\Controllers\HomeController;
 Use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
@@ -19,9 +19,9 @@ Route::get('/layanan/{jenis}', [HomeController::class, 'layanan'])->name('layana
 Route::get('/faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 Route::get('/blog/{blog}', [HomeController::class, 'detail'])->name('detail.show');
 Route::get('/contact/form', [ContactController::class, 'showForm'])->name('contact.form');
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact/', [ContactController::class, 'store'])->name('contact.store');
 
- 
+
 
 Auth::routes();
 
@@ -31,11 +31,13 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
 
 Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show');
-Route::get('/blog/create', [App\Http\Controllers\BlogController::class, 'create'])->name('blogs.create');
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blogs.create');
 Route::post('/blogs', [App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
+Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show'); // Now after create
 Route::get('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit'])->name('blogs.edit');
 Route::put('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
 Route::delete('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('blogs.destroy');
+
 
 
 Route::get('/faqs', [App\Http\Controllers\FaqController::class, 'index'])->name('faqs.index');
@@ -44,4 +46,7 @@ Route::post('/faqs', [App\Http\Controllers\FaqController::class, 'store'])->name
 Route::get('/faqs/{faq}/edit', [App\Http\Controllers\FaqController::class, 'edit'])->name('faqs.edit');
 Route::put('/faqs/{faq}', [App\Http\Controllers\FaqController::class, 'update'])->name('faqs.update');
 Route::delete('/faqs/{faq}', [App\Http\Controllers\FaqController::class, 'destroy'])->name('faqs.destroy');
+
+Route::get ('/contacts', [App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
+Route::delete('/contacts/{contact}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('contacts.destroy');
 

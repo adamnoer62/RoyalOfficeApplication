@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+
+    public function index(){
+        $contact = Contact::all();
+        return view('Admin.Contact.index', compact('contact'));
+    }
     // Show the contact form
     public function showForm()
     {
