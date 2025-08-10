@@ -31,7 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
 
 Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show');
-Route::get('/blog/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::get('/blog/create', [App\Http\Controllers\BlogController::class, 'create'])->name('blogs.create');
 Route::post('/blogs', [App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
 Route::get('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit'])->name('blogs.edit');
 Route::put('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
