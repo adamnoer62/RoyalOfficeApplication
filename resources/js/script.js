@@ -1,11 +1,11 @@
 // Services data
 const services = [
-    { name: 'Virtual Office', icon: 'building', color: 'bg-yellow-500', url: 'virtual.html' },
-    { name: 'Ruang Kantor', icon: 'home', color: 'bg-green-500', url: 'ruang-kantor.html' },
-    { name: 'Ruang Meeting', icon: 'users', color: 'bg-purple-500', url: 'ruang-meeting.html' },
-    { name: 'Coworking Space', icon: 'laptop', color: 'bg-orange-500', url: 'coworking-space.html' },
-    { name: 'Pendirian PT', icon: 'file-text', color: 'bg-red-500', url: 'pendirian-pt.html' },
-    { name: 'Pendirian CV', icon: 'briefcase', color: 'bg-indigo-500', url: 'pendirian-cv.html' }
+    { name: 'Virtual Office', icon: 'building', color: 'bg-yellow-500', url: '/layanan/virtual-office' },
+    { name: 'Ruang Kantor', icon: 'home', color: 'bg-green-500', url: '/layanan/ruang-kantor' },
+    { name: 'Ruang Meeting', icon: 'users', color: 'bg-purple-500', url: '/layanan/ruang-meeting' },
+    { name: 'Coworking Space', icon: 'laptop', color: 'bg-orange-500', url: '/layanan/coworking-space' },
+    { name: 'Pendirian PT', icon: 'file-text', color: 'bg-red-500', url: '/layanan/pendirian-pt' },
+    { name: 'Pendirian CV', icon: 'briefcase', color: 'bg-indigo-500', url: '/layanan/pendirian-cv' }
 ];
 
 
@@ -85,6 +85,7 @@ function setupAnimations() {
     });
 }
 
+// Render services
 // Render services
 function renderServices() {
     const servicesGrid = document.getElementById('services-grid');

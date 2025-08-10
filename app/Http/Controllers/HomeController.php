@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use App\Models\Faq;
+use App\Models\Blog;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['halamandepan', 'about', 'blog', 'contact','layanan']);
+        $this->middleware('auth')->except(['halamandepan', 'about', 'blog', 'contact','layanan','faq']);
     }
     
 
@@ -35,7 +37,8 @@ class HomeController extends Controller
 
     public function blog()
     {
-        return view('HalamanDepan.Blog');
+        $blogs = Blog::latest()->get();
+        return view('HalamanDepan.Blog', compact('blogs'));
     }
 
     public function layanan($jenis)
@@ -46,6 +49,7 @@ class HomeController extends Controller
         'ruang-meeting'  => 'HalamanDepan.RuangMeeting',
         'pendirian-pt'   => 'HalamanDepan.PendirianPT',
         'pendirian-cv'   => 'HalamanDepan.PendirianCV',
+        'coworking-space'      => 'HalamanDepan.Coworking',
     ];
 
     if (!array_key_exists($jenis, $viewMap)) {
@@ -62,7 +66,8 @@ class HomeController extends Controller
 
     public function faq()
     {
-        return view('HalamanDepan.faq');
+        $faqs = Faq::all();
+        return view('HalamanDepan.faq', compact('faqs'));
     }
 
 
@@ -76,4 +81,12 @@ class HomeController extends Controller
 
        return view('welcome', compact('activeBanner', 'allBanners'));
     }
+
+
+    public function detail(Blog $blog)
+{
+
+    return view('HalamanDepan.detail', compact('blog'));  // Pass the blog to the view
+}
+
 }

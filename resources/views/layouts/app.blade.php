@@ -68,7 +68,7 @@
                 <a href="{{ route('contact') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">Kontak</a>
                 <a href="{{ route('faq') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">FAQ</a>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden transition-colors duration-300 text-white"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden transition-colors duration-300 text-white hover:text-yellow-500 flex items-center"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             {{-- Konten Mobile Menu --}}
@@ -246,3 +246,4 @@
     </style>
 </body>
 </html>
+

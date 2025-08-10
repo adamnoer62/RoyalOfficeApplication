@@ -1,0 +1,57 @@
+@extends('layouts.admin')
+
+@section('title', 'Manajemen Blog')
+
+@section('content')
+
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">Manajemen Blog</h1>
+        <a href="{{ route('blogs.create') }}" class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-200">
+            <i data-lucide="plus" class="inline-block w-4 h-4 mr-1"></i> Tambah Blog
+        </a>
+    </div>
+
+    @if (session('success'))
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
+
+    <div class="bg-white rounded-lg shadow-md overflow-x-auto">
+        <table class="min-w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                <tr>
+                    <th scope="col" class="px-6 py-3">Gambar</th>
+                    <th scope="col" class="px-6 py-3">Judul</th>
+                    <th scope="col" class="px-6 py-3">Isi</th>
+                    <th scope="col" class="px-6 py-3 text-center">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($blogs as $blog)
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4">
+                            <!-- Fix for image path, using the correct location -->
+                            <img src="{{ asset('images/' . $blog->image) }}" alt="{{ $blog->title }}" class="w-32 h-16 object-cover rounded-md">
+                        </td>
+                        <td class="px-6 py-4 font-medium text-gray-900">{{ $blog->title }}</td>
+                        <td class="px-6 py-4">{{ Str::limit($blog->content, 100) }}</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="{{ route('blogs.edit', $blog) }}" class="text-blue-500 hover:text-blue-700 font-semibold">Edit</a>
+                            <button form="delete-form-{{ $blog->id }}" class="text-red-500 hover:text-red-700 font-semibold" onclick="return confirm('Apakah Anda yakin ingin menghapus blog ini?');">Hapus</button>
+                            <form id="delete-form-{{ $blog->id }}" action="{{ route('blogs.destroy', $blog) }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center py-6">Tidak ada blog.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+@endsection

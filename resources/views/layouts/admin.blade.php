@@ -45,13 +45,13 @@
                         Banner
                     </a>
                     {{-- Contoh untuk link lain (saat ini non-aktif) --}}
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
+                    <a href="{{ route('blogs.index') }}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 {{ Request::is('admin/blogs*') ? 'active-link' : '' }}">
                         <i data-lucide="file-text" class="w-5 h-5 mr-3"></i>
                         Postingan Blog
                     </a>
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
+                    <a href="{{ route('faqs.index') }}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 {{ Request::is('admin/faq*') ? 'active-link' : '' }}">
                         <i data-lucide="users" class="w-5 h-5 mr-3"></i>
-                        Pengguna
+                        Faq
                     </a>
                     <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
                         <i data-lucide="inbox" class="w-5 h-5 mr-3"></i>

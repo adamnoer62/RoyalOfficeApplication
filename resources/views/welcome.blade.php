@@ -38,6 +38,7 @@
 </section>
 @endif
 
+<!-- Services Section -->
 <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
         <h2 class="slide-in-left text-4xl font-bold text-center mb-4 text-gray-800">Semua Layanan Kami</h2>
@@ -47,6 +48,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="bg-white py-20">
     <div class="container mx-auto px-4">
@@ -129,6 +131,40 @@
             }
         }
     
+    });
+
+    const services = [
+        { name: 'Virtual Office', icon: 'building', color: 'bg-yellow-500', url: '{{ route('layanan.show', 'virtual-office') }}' },
+        { name: 'Ruang Kantor', icon: 'home', color: 'bg-green-500', url: '{{ route('layanan.show', 'ruang-kantor') }}' },
+        { name: 'Ruang Meeting', icon: 'users', color: 'bg-purple-500', url: '{{ route('layanan.show', 'ruang-meeting') }}' },
+        { name: 'Coworking Space', icon: 'laptop', color: 'bg-orange-500', url: '{{ route('layanan.show', 'coworking-space') }}' },
+        { name: 'Pendirian PT', icon: 'file-text', color: 'bg-red-500', url: '{{ route('layanan.show', 'pendirian-pt') }}' },
+        { name: 'Pendirian CV', icon: 'briefcase', color: 'bg-indigo-500', url: '{{ route('layanan.show', 'pendirian-cv') }}' }
+    ];
+
+    // Render services function
+    function renderServices() {
+        const servicesGrid = document.getElementById('services-grid');
+        servicesGrid.innerHTML = services.map((service, index) => `
+            <div class="service-card bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg text-center ${
+                index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'
+            }" style="animation-delay: ${index * 0.1}s">
+                <div class="${service.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="${service.icon}" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">${service.name}</h3>
+                <p class="hidden md:block text-gray-600 mb-4">
+                    Solusi profesional untuk ${service.name.toLowerCase()} dengan kualitas terbaik
+                </p>
+                <a href="${service.url}" class="text-yellow-600 hover:text-yellow-800 font-semibold">
+                    Pelajari Lebih →
+                </a>
+            </div>
+        `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderServices();
     });
     </script>
 @endpush
