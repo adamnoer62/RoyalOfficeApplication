@@ -29,16 +29,14 @@ Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name(
  Route::patch('banners/{banner}/set-active', [BannerController::class, 'setActive'])->name('banners.setActive');
  Route::resource('banners', BannerController::class);
 
-Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
-Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show');
-Route::get('/blog/create', [BlogController::class, 'create'])->name('blogs.create');
-Route::post('/blogs', [App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
-Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show'); // Now after create
-Route::get('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit'])->name('blogs.edit');
-Route::put('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
-Route::delete('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('blogs.destroy');
-
-
+ Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
+ Route::get('/blogs/create', [App\Http\Controllers\BlogController::class, 'create'])->name('blogs.create'); // MOVED UP
+ Route::post('/blogs', [App\Http\Controllers\BlogController::class, 'store'])->name('blogs.store');
+ Route::get('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'show'])->name('blogs.show'); // Now after create
+ Route::get('/blogs/{blog}/edit', [App\Http\Controllers\BlogController::class, 'edit'])->name('blogs.edit');
+ Route::put('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'update'])->name('blogs.update');
+ Route::delete('/blogs/{blog}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('blogs.destroy');
+ 
 
 Route::get('/faqs', [App\Http\Controllers\FaqController::class, 'index'])->name('faqs.index');
 Route::get('/faqs/create', [App\Http\Controllers\FaqController::class, 'create'])->name('faqs.create');

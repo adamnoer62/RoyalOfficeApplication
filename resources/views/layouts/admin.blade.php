@@ -53,7 +53,7 @@
                         <i data-lucide="users" class="w-5 h-5 mr-3"></i>
                         Faq
                     </a>
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
+                    <a href="{{ route('contacts.index') }}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 {{ Request::is('admin/contacts*') ? 'active-link' : '' }}">
                         <i data-lucide="inbox" class="w-5 h-5 mr-3"></i>
                         Pesan Masuk
                     </a>
@@ -61,10 +61,10 @@
 
                 {{-- Bagian Bawah Navigasi --}}
                 <div class="mb-4">
-                    <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
+                    {{--  <a href="#" class="flex items-center px-6 py-3 text-gray-400 cursor-not-allowed transition-colors duration-200">
                         <i data-lucide="settings" class="w-5 h-5 mr-3"></i>
                         Pengaturan
-                    </a>
+                    </a>  --}}
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form-sidebar').submit();"
                        class="flex items-center px-6 py-3 text-gray-300 hover:bg-red-700 hover:text-white transition-colors duration-200 border-t border-gray-700">
