@@ -21,7 +21,7 @@ Route::get('/blog/{blog}', [HomeController::class, 'detail'])->name('detail.show
 Route::get('/contact/form', [ContactController::class, 'showForm'])->name('contact.form');
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
-
+ 
 
 Auth::routes();
 
