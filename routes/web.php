@@ -6,6 +6,9 @@ use App\Http\Controllers\HomeController;
 Use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\ServiceController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -28,6 +31,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
  Route::patch('banners/{banner}/set-active', [BannerController::class, 'setActive'])->name('banners.setActive');
  Route::resource('banners', BannerController::class);
+ Route::resource('testimonials', TestimonialController::class);
+ Route::resource('services', ServiceController::class);
 
  Route::get('/blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
  Route::get('/blogs/create', [App\Http\Controllers\BlogController::class, 'create'])->name('blogs.create'); // MOVED UP

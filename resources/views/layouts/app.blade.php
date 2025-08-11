@@ -14,10 +14,13 @@
     <meta property="og:description" content="@yield('description', 'Layanan Virtual Office, Ruang Kantor, dan Solusi Bisnis Terpercaya')">
     <meta name="twitter:title" content="@yield('title', 'Royale Office & Business Solutions')">
     <meta name="twitter:description" content="@yield('description', 'Layanan Virtual Office, Ruang Kantor, dan Solusi Bisnis Terpercaya')">
-
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9.0.1/swiper-bundle.min.css" rel="stylesheet">
     {{-- Aset CSS dan JS --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://resource.trickle.so/vendor_lib/unpkg/lucide@0.513.0/lucide.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     {{-- Jika Anda menggunakan Vite, ganti dengan @vite --}}
     {{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> --}}
 
@@ -40,6 +43,7 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.1/swiper-bundle.min.js"></script>
 
     <div class="fixed bottom-4 left-4 right-4 z-50 md:hidden">
         <a href="https://wa.me/6281290391922" target="_blank" class="block text-center bg-yellow-600 hover:bg-red-700 text-white font-semibold py-3 rounded-full shadow-lg transition-all duration-300">

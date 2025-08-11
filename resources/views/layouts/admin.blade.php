@@ -22,6 +22,7 @@
         ::-webkit-scrollbar-thumb:hover { background: #555; }
         .active-link { background-color: #ca8a04; color: #ffffff; }
     </style>
+    
 
     @stack('styles')
 </head>
@@ -56,6 +57,10 @@
                     <a href="{{ route('contacts.index') }}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 {{ Request::is('admin/contacts*') ? 'active-link' : '' }}">
                         <i data-lucide="inbox" class="w-5 h-5 mr-3"></i>
                         Pesan Masuk
+                    </a>
+                    <a href="{{ route('testimonials.index') }}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 {{ Request::is('admin/testimonials*') ? 'active-link' : '' }}">
+                        <i data-lucide="users" class="w-5 h-5 mr-3"></i>
+                        Testimoni
                     </a>
                 </div>
 

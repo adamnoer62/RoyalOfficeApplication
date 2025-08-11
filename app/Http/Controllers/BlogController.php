@@ -111,7 +111,7 @@ class BlogController extends Controller
             $image->move(public_path('images'), $imageName);
     
             // Save the relative path of the image
-            $blog->image = 'images/' . $imageName;
+            $blog->image = '' . $imageName;
         }
     
         // Save the updated blog post

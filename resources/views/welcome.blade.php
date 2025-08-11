@@ -53,20 +53,27 @@
 <section class="bg-white py-20">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Apa Kata Klien Kami</h2>
-        <div class="grid gap-8 md:grid-cols-3">
-            <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-                <p class="text-gray-700 mb-4">"Layanan Virtual Office dari Royale Office sangat membantu bisnis saya tampil profesional..."</p>
-                <div class="flex items-center space-x-4">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1" class="w-12 h-12 rounded-full">
-                    <div>
-                        <h4 class="font-semibold text-gray-800">Adi Nugroho</h4><span class="text-sm text-gray-500">CEO PT Maju Bersama</span>
+        
+        <!-- Grid Testimonial -->
+        <div class="testimonial-wrapper">
+            <div class="grid gap-8 md:grid-cols-3 testimonial-container">
+                @foreach ($testimonials->take(3) as $testimonial)
+                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                    <p class="text-gray-700 mb-4">"{{ $testimonial->testimonial }}"</p>
+                    <div class="flex items-center space-x-4">
+                        {{--  <img src="{{ $testimonial->avatar ?? 'https://randomuser.me/api/portraits/men/32.jpg' }}" alt="Client Avatar" class="w-12 h-12 rounded-full">  --}}
+                        <div>
+                            <h4 class="font-semibold text-gray-800">{{ $testimonial->name }}</h4>
+                            <span class="text-sm text-gray-500">{{ $testimonial->position }}</span>
+                        </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            {{-- Testimoni lainnya --}}
         </div>
     </div>
 </section>
+
 
 <section class="service-parallax parallax-bg py-20 text-white">
     <div class="container mx-auto px-4">
@@ -166,5 +173,19 @@
     document.addEventListener('DOMContentLoaded', function() {
         renderServices();
     });
+
+    let testimonialWrapper = document.querySelector('.testimonial-wrapper');
+    let testimonialContainer = document.querySelector('.testimonial-container');
+
+    let testimonialWidth = testimonialContainer.offsetWidth; // Mengukur lebar dari container testimonial
+    let currentScroll = 0;
+
+    setInterval(() => {
+        currentScroll += 1; // Geser testimonial sedikit demi sedikit
+        if (currentScroll > testimonialWidth) {
+            currentScroll = 0; // Reset jika sudah mencapai batas
+        }
+        testimonialWrapper.scrollLeft = currentScroll;
+    }, 50);
     </script>
 @endpush

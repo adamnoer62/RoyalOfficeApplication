@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Faq;
 use App\Models\Blog;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -78,8 +79,9 @@ class HomeController extends Controller
 
       
        $allBanners = Banner::latest()->get();
+       $testimonials = Testimonial::latest()->get();
 
-       return view('welcome', compact('activeBanner', 'allBanners'));
+       return view('welcome', compact('activeBanner', 'allBanners','testimonials'));
     }
 
 
@@ -88,5 +90,6 @@ class HomeController extends Controller
 
     return view('HalamanDepan.detail', compact('blog'));  // Pass the blog to the view
 }
+
 
 }

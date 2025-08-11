@@ -19,12 +19,18 @@
                         <div class="form-group mb-6">
                             <label for="title" class="text-xl font-medium text-gray-700">Blog Title</label>
                             <input type="text" class="block w-full p-4 mt-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 ease-in-out transform hover:scale-105" id="title" name="title" value="{{ old('title', $blog->title) }}" required>
+                            @error('title')
+                                <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <!-- Content Input -->
                         <div class="form-group mb-6">
                             <label for="content" class="text-xl font-medium text-gray-700">Blog Content</label>
                             <textarea class="block w-full p-4 mt-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 ease-in-out transform hover:scale-105" id="content" name="content" rows="6" required>{{ old('content', $blog->content) }}</textarea>
+                            @error('content')
+                                <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <!-- Image Upload Input -->
@@ -37,6 +43,9 @@
                                     <p class="text-sm text-gray-500 mt-2">Current Image</p>
                                 </div>
                             @endif
+                            @error('image')
+                                <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <!-- Buttons -->
@@ -51,3 +60,4 @@
         </div>
     </div>
 @endsection
+
