@@ -61,7 +61,7 @@
                 <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
                     <p class="text-gray-700 mb-4">"{{ $testimonial->testimonial }}"</p>
                     <div class="flex items-center space-x-4">
-                        {{--  <img src="{{ $testimonial->avatar ?? 'https://randomuser.me/api/portraits/men/32.jpg' }}" alt="Client Avatar" class="w-12 h-12 rounded-full">  --}}
+                        <img src="{{ $testimonial->avatar ?? 'https://randomuser.me/api/portraits/men/32.jpg' }}" alt="Client Avatar" class="w-12 h-12 rounded-full">
                         <div>
                             <h4 class="font-semibold text-gray-800">{{ $testimonial->name }}</h4>
                             <span class="text-sm text-gray-500">{{ $testimonial->position }}</span>
