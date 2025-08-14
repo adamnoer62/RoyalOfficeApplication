@@ -19,7 +19,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://resource.trickle.so/vendor_lib/unpkg/lucide@0.513.0/lucide.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     {{-- Jika Anda menggunakan Vite, ganti dengan @vite --}}
     {{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> --}}
@@ -52,6 +52,7 @@
     </div>
 
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4">
+        {{-- Konten Navbar Lengkap --}}
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div id="logo" class="text-2xl font-bold transition-colors duration-300 text-white">Royale Office</div>
             <nav class="hidden md:flex space-x-8 items-center" id="nav-menu">
@@ -71,26 +72,14 @@
                 <a href="{{ route('contact') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">Kontak</a>
                 <a href="{{ route('faq') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">FAQ</a>
             </nav>
-            <button id="mobile-menu-btn" class="md:hidden transition-colors duration-300 text-white hover:text-yellow-500 flex items-center">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <button id="mobile-menu-btn" class="md:hidden transition-colors duration-300 text-white hover:text-yellow-500 flex items-center"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </div>
-        
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="{{ url('/') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Beranda</a>
-                <a href="{{ route('about') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Tentang</a>
-                <a href="{{ route('blog') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Blog</a>
-                <a href="{{ route('contact') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Kontak</a>
-                <a href="{{ route('faq') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">FAQ</a>
-                <div class="border-t border-gray-200 my-2"></div>
-                <p class="px-3 py-2 text-sm font-semibold text-gray-500">Layanan Kami</p>
-                <a href="{{ route('layanan.show', ['jenis' => 'virtual-office']) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Virtual Office</a>
-                <a href="{{ route('layanan.show', ['jenis' => 'ruang-kantor']) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Ruang Kantor</a>
-                <a href="{{ route('layanan.show', ['jenis' => 'ruang-meeting']) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Ruang Meeting</a>
-                <a href="{{ route('layanan.show', ['jenis' => 'pendirian-pt']) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Pendirian PT</a>
-                <a href="{{ route('layanan.show', ['jenis' => 'pendirian-cv']) }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-yellow-600 hover:bg-gray-50">Pendirian CV</a>
-            </div>
+            <a href="{{ route('layanan.show', ['jenis' => 'virtual-office']) }}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Virtual Office</a>
+            <a href="{{ route('layanan.show', ['jenis' => 'ruang-kantor']) }}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Ruang Kantor</a>
+            <a href="{{ route('layanan.show', ['jenis' => 'ruang-meeting']) }}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Ruang Meeting</a>
+            <a href="{{ route('layanan.show', ['jenis' => 'pendirian-pt']) }}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Pendirian PT</a>
+            <a href="{{ route('layanan.show', ['jenis' => 'pendirian-cv']) }}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Pendirian CV</a>        
         </div>
     </header>
 
@@ -98,6 +87,7 @@
         {{-- Di sinilah konten unik dari setiap halaman akan ditampilkan --}}
         @yield('content')
     </main>
+
 
     <footer class="bg-gray-900 text-white py-12">
         {{-- Konten Footer Lengkap --}}
@@ -143,13 +133,31 @@
     <script src="{{ asset('js/blog-script.js') }}"></script>
 
     {{-- Script dari file asli untuk fungsionalitas menu --}}
-    <script>
-        lucide.createIcons();
+   <script>
+        // Inisialisasi Lucide Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Animasi scroll
+            const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         const logo = document.getElementById('logo');
         const navLinks = document.querySelectorAll('.nav-link');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('bg-white', 'shadow-md', 'py-2');
@@ -176,25 +184,79 @@
             }
         });
 
-        // Dropdown menu
+        // Dropdown menu desktop
         const toggleBtn = document.getElementById('dropdownToggle');
         const dropdown = document.getElementById('dropdownMenu');
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('hidden');
-        });
-        window.addEventListener('click', () => dropdown.classList.add('hidden'));
-        dropdown.addEventListener('click', (e) => e.stopPropagation());
+        
+        if (toggleBtn && dropdown) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('hidden');
+            });
+            
+            window.addEventListener('click', () => dropdown.classList.add('hidden'));
+            dropdown.addEventListener('click', (e) => e.stopPropagation());
+        }
 
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+            mobileMenuOverlay.classList.toggle('show');
+            
+            // Ganti ikon menu/x
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('translate-x-0')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+        }
     </script>
     
     @stack('scripts')
 
     <style>
+        #mobile-menu-btn {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            #mobile-menu-btn {
+                display: block;
+            }
+        }
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        #mobile-menu.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            visibility: visible;
+        }
         .parallax-bg {
             background-attachment: fixed;
             background-position: center;
@@ -257,5 +319,13 @@
             background: rgba(255, 255, 255, 0.95);
         }
         
-        @media (
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+
+    </style>
+</body>
+</html>
 
