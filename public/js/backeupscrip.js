@@ -95,7 +95,8 @@ function renderTeamMembers() {
         <div class="text-center">
             <img src="${member.image}" alt="${member.name}" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
             <h3 class="text-xl font-bold text-gray-800 mb-2">${member.name}</h3>
-           
+            <p class="text-yellow-600 font-semibold mb-3">${member.position}</p>
+            <p class="text-gray-600">${member.description}</p>
         </div>
     `).join('');
 }

@@ -49,6 +49,7 @@
     </div>
 </section>
 
+<img src="{{ asset('images/event.jpeg') }}" alt="Interior Kantor Modern" class="w-full h-full object-cover" />
 
 <section class="bg-white py-20">
     <div class="container mx-auto px-4">

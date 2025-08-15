@@ -59,14 +59,14 @@ window.addEventListener('scroll', handleNavbarScroll);
 
 
 // Mobile menu toggle
-function setupMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+// function setupMobileMenu() {
+//     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+//     const mobileMenu = document.getElementById('mobile-menu');
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-}
+//     mobileMenuBtn.addEventListener('click', () => {
+//         mobileMenu.classList.toggle('hidden');
+//     });
+// }
 
 // Intersection Observer for animations
 function setupAnimations() {
@@ -128,7 +128,7 @@ function renderBenefits() {
 document.addEventListener('DOMContentLoaded', function() {
     renderServices();
     renderBenefits();
-    setupMobileMenu();
+  
     setupAnimations();
 
     // Initialize Lucide icons

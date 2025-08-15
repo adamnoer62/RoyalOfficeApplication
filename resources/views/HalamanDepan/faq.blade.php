@@ -51,7 +51,7 @@
         <div class="bg-gray-100 rounded-2xl p-8 md:p-12 text-center">
             <h2 class="text-2xl md:text-3xl font-bold mb-4">Masih Belum Menemukan Jawaban?</h2>
             <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Tim kami selalu siap membantu Anda. Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan lebih lanjut.</p>
-            <a href="#" class="bg-indigo-600 text-white font-bold px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300 inline-block">Hubungi Tim Support</a>
+            <a href="https://wa.me/+6281290391922" class="bg-indigo-600 text-white font-bold px-8 py-3 rounded-full hover:bg-indigo-700 transition duration-300 inline-block">Hubungi Tim Support</a>
         </div>
     </div>
 </section>

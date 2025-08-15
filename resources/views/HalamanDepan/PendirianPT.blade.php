@@ -84,7 +84,7 @@
                         <p class="text-center text-gray-500 mb-6">Layanan lengkap untuk legalitas dan izin usaha.</p>
 
                         <div class="text-center my-8">
-                            <span class="text-5xl font-bold text-gray-800">Rp 5.000.000</span>
+                            <span class="text-5xl font-bold text-gray-800">Rp 4.000.000</span>
                             <span class="text-xl text-gray-600">/ selesai</span>
                         </div>
 
@@ -103,7 +103,7 @@
                             </li>
                         </ul>
 
-                        <a href="#" class="bg-yellow-500 text-white text-center font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition duration-300 w-full block text-lg shadow-lg">
+                        <a href="https://wa.me/+6281290391922" class="bg-yellow-500 text-white text-center font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition duration-300 w-full block text-lg shadow-lg">
                             Hubungi Kami
                         </a>
                     </div>

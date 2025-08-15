@@ -84,7 +84,7 @@
                         <p class="text-center text-gray-500 mb-6">Solusi lengkap untuk pendirian CV.</p>
 
                         <div class="text-center my-8">
-                            <span class="text-5xl font-bold text-gray-800">Rp 2.200.000</span>
+                            <span class="text-5xl font-bold text-gray-800">Rp 3.000.000</span>
                             <span class="text-xl text-gray-600">/ tahun</span>
                         </div>
 
@@ -102,9 +102,8 @@
                                 <svg class="w-6 h-6 text-green-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>                                Pendampingan Profesional
                             </li>
                         </ul>
-
-                        <a href="#" class="bg-yellow-500 text-white text-center font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition duration-300 w-full block text-lg shadow-lg">
-                            Daftar Sekarang
+                        <a href="https://wa.me/+6281290391922" class="bg-yellow-500 text-white text-center font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition duration-300 w-full block text-lg shadow-lg">
+                            Hubungi Kami
                         </a>
                     </div>
                 </div>
