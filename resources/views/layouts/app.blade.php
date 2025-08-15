@@ -160,8 +160,9 @@
                     <p class="text-gray-300 mb-4">Solusi terpercaya untuk kebutuhan bisnis Anda dengan layanan profesional dan berkualitas tinggi.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-300 hover:text-yellow-400"><i data-lucide="facebook" class="w-6 h-6"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400"><i data-lucide="instagram" class="w-6 h-6"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-400"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                        <a href="https://www.instagram.com/royale.office?igsh=MWs5dmgzb2lrZ2R0Mw%3D%3D&utm_source=qr
+                        " class="text-gray-300 hover:text-yellow-400"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="https://www.tiktok.com/@royaleoffice?_t=ZS-8ytC5hKLgal&_r=1" class="text-gray-300 hover:text-yellow-400"><img src="{{ asset('images/tiktok.png') }}" alt="Twitter" class="w-6 h-6"></a>
                     </div>
                 </div>
                 <div>
