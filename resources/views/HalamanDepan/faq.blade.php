@@ -20,10 +20,9 @@
 <section class="py-16 md:py-24">
     <div class="container mx-auto px-6">
         <div id="faq-container" class="max-w-4xl mx-auto space-y-12">
-            
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-indigo-200 pb-3">{{ $faq->category ?? 'General FAQ' }}</h2>
             @foreach ($faqs as $faq)
                 <div class="faq-category">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-indigo-200 pb-3">{{ $faq->category ?? 'General FAQ' }}</h2>
                     <div class="space-y-4">
                         <details class="faq-item bg-white p-6 rounded-lg shadow-sm group">
                             <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">
