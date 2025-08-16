@@ -64,6 +64,28 @@
                 display: none;
             }
         }
+
+        /* --- CSS TAMBAHAN UNTUK DROPDOWN MOBILE --- */
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            padding-left: 1rem; /* Menambahkan sedikit indentasi */
+        }
+
+        .mobile-dropdown.open {
+            max-height: 300px; /* Sesuaikan tinggi maksimal jika item lebih banyak */
+        }
+        
+        .mobile-dropdown-btn svg {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-dropdown-btn.open svg {
+            transform: rotate(180deg);
+        }
+        /* --- AKHIR DARI CSS TAMBAHAN --- */
+
     </style>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -85,7 +107,6 @@
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div id="logo" class="text-2xl font-bold transition-colors duration-300 text-white">Royale Office</div>
             
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8 items-center" id="nav-menu">
                 <a href="{{ url('/') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">Beranda</a>
                 
@@ -111,20 +132,18 @@
                 <a href="{{ route('faq') }}" class="nav-link transition-colors duration-300 text-white hover:text-yellow-500">FAQ</a>
             </nav>
             
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden transition-colors duration-300 text-white hover:text-yellow-500 flex items-center h-full px-4">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-800 flex items-center h-full px-4">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
             
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mobile-menu">
+            <div id="mobile-menu" class="mobile-menu bg-white">
                 <div class="px-4 py-2 space-y-1">
                     <a href="{{ url('/') }}" class="block px-4 py-3 text-gray-700 hover:bg-yellow-100 rounded-lg transition-colors">Beranda</a>
                     
                     <div class="px-4 py-1">
                         <button class="mobile-dropdown-btn flex items-center justify-between w-full text-gray-700 hover:text-yellow-500 px-4 py-3 rounded-lg transition-colors">
-                            Layanan
+                            <span>Layanan</span>
                             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -204,114 +223,44 @@
     <script src="{{ asset('js/about-script.js') }}"></script>
     <script src="{{ asset('js/blog-script.js') }}"></script>
 
-    {{--  <script>
-        // Inisialisasi Lucide Icons
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
-            
-            // Animasi scroll
-            const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(el => observer.observe(el));
-            
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileDropdownBtn = document.getElementById('mobile-dropdown-btn');
-            const mobileDropdown = document.getElementById('mobile-dropdown');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
-                    
-                    // Toggle menu icon between menu and x
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (mobileMenu.classList.contains('open')) {
-                        icon.setAttribute('data-lucide', 'x');
-                    } else {
-                        icon.setAttribute('data-lucide', 'menu');
-                    }
-                    lucide.createIcons();
-                });
-            }
-            
-            if (mobileDropdownBtn && mobileDropdown) {
-                mobileDropdownBtn.addEventListener('click', function() {
-                    mobileDropdown.classList.toggle('hidden');
-                    
-                    // Rotate the dropdown arrow
-                    const arrow = mobileDropdownBtn.querySelector('svg');
-                    arrow.classList.toggle('transform');
-                    arrow.classList.toggle('rotate-180');
-                });
-            }
-        });
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        const logo = document.getElementById('logo');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'shadow-md', 'py-2');
-                navbar.classList.remove('bg-transparent', 'py-4');
-                logo.classList.add('text-gray-800');
-                logo.classList.remove('text-white');
-                if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.add('text-gray-800');
-                    mobileMenuBtn.classList.remove('text-white');
-                }
-                navLinks.forEach(link => {
-                    link.classList.add('text-gray-800');
-                    link.classList.remove('text-white');
-                });
-            } else {
-                navbar.classList.remove('bg-white', 'shadow-md', 'py-2');
-                navbar.classList.add('bg-transparent', 'py-4');
-                logo.classList.remove('text-gray-800');
-                logo.classList.add('text-white');
-                if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.remove('text-gray-800');
-                    mobileMenuBtn.classList.add('text-white');
-                }
-                navLinks.forEach(link => {
-                    link.classList.remove('text-gray-800');
-                    link.classList.add('text-white');
-                });
-            }
-        });
-    </script>  --}}
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize Lucide icons
             lucide.createIcons();
             
-            // Mobile menu toggle
+            // Define elements
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+            const navbar = document.getElementById('navbar');
+            const logo = document.getElementById('logo');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Mobile menu toggle
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', function() {
                     mobileMenu.classList.toggle('open');
+                    const isMenuOpen = mobileMenu.classList.contains('open');
+
+                    // Force solid navbar when menu is open
+                    if (isMenuOpen) {
+                        navbar.classList.add('bg-white', 'shadow-md', 'navbar-blur');
+                        navbar.classList.remove('bg-transparent');
+                        logo.classList.add('text-gray-800');
+                        logo.classList.remove('text-white');
+                    } else {
+                        // When menu is closed, revert to scroll-based style
+                        // This check reverts to transparent if at top
+                        if (window.scrollY <= 50) {
+                            navbar.classList.remove('bg-white', 'shadow-md', 'navbar-blur');
+                            navbar.classList.add('bg-transparent');
+                            logo.classList.remove('text-gray-800');
+                            logo.classList.add('text-white');
+                        }
+                    }
                     
                     // Toggle menu icon between menu and x
                     const icon = mobileMenuBtn.querySelector('i');
-                    if (mobileMenu.classList.contains('open')) {
-                        icon.setAttribute('data-lucide', 'x');
-                    } else {
-                        icon.setAttribute('data-lucide', 'menu');
-                    }
+                    icon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
                     lucide.createIcons();
                 });
             }
@@ -327,55 +276,53 @@
             });
             
             // Navbar scroll effect
-            const navbar = document.getElementById('navbar');
-            const logo = document.getElementById('logo');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const mobileMenuBtnElement = document.getElementById('mobile-menu-btn');
-            
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-white', 'shadow-md', 'navbar-blur');
-                    navbar.classList.remove('bg-transparent');
-                    logo.classList.add('text-gray-800');
-                    logo.classList.remove('text-white');
-                    
-                    if (mobileMenuBtnElement) {
-                        mobileMenuBtnElement.classList.add('text-gray-800');
-                        mobileMenuBtnElement.classList.remove('text-white');
+                // Only apply scroll effect if the mobile menu is NOT open
+                if (mobileMenu && !mobileMenu.classList.contains('open')) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('bg-white', 'shadow-md', 'navbar-blur');
+                        navbar.classList.remove('bg-transparent');
+                        logo.classList.add('text-gray-800');
+                        logo.classList.remove('text-white');
+                        
+                        navLinks.forEach(link => {
+                            link.classList.add('text-gray-800');
+                            link.classList.remove('text-white');
+                        });
+                    } else {
+                        navbar.classList.remove('bg-white', 'shadow-md', 'navbar-blur');
+                        navbar.classList.add('bg-transparent');
+                        logo.classList.remove('text-gray-800');
+                        logo.classList.add('text-white');
+                        
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-gray-800');
+                            link.classList.add('text-white');
+                        });
                     }
-                    
-                    navLinks.forEach(link => {
-                        link.classList.add('text-gray-800');
-                        link.classList.remove('text-white');
-                    });
-                } else {
-                    navbar.classList.remove('bg-white', 'shadow-md', 'navbar-blur');
-                    navbar.classList.add('bg-transparent');
-                    logo.classList.remove('text-gray-800');
-                    logo.classList.add('text-white');
-                    
-                    if (mobileMenuBtnElement) {
-                        mobileMenuBtnElement.classList.remove('text-gray-800');
-                        mobileMenuBtnElement.classList.add('text-white');
-                    }
-                    
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-gray-800');
-                        link.classList.add('text-white');
-                    });
                 }
             });
             
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(event) {
-                const isClickInsideMobileMenu = mobileMenu.contains(event.target);
-                const isClickOnMobileButton = mobileMenuBtn.contains(event.target);
-                
-                if (!isClickInsideMobileMenu && !isClickOnMobileButton && mobileMenu.classList.contains('open')) {
-                    mobileMenu.classList.remove('open');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.setAttribute('data-lucide', 'menu');
-                    lucide.createIcons();
+                if(mobileMenu && mobileMenuBtn) {
+                    const isClickInsideMobileMenu = mobileMenu.contains(event.target);
+                    const isClickOnMobileButton = mobileMenuBtn.contains(event.target);
+                    
+                    if (!isClickInsideMobileMenu && !isClickOnMobileButton && mobileMenu.classList.contains('open')) {
+                        mobileMenu.classList.remove('open');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+
+                        // Also revert navbar style if at top
+                        if(window.scrollY <= 50) {
+                            navbar.classList.remove('bg-white', 'shadow-md', 'navbar-blur');
+                            navbar.classList.add('bg-transparent');
+                            logo.classList.remove('text-gray-800');
+                            logo.classList.add('text-white');
+                        }
+                    }
                 }
             });
             
